@@ -1,0 +1,49 @@
+﻿@model AccountManagement.Models.RegisterEntry
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>My Account</legend>
+
+        <div  class="editor-label">
+            Name
+        </div>
+        
+        <div class="editor-label">
+          @Html.EditorFor(model => model.Name)
+        </div>
+        
+          @Html.HiddenFor(model => model.Email)
+        
+        <div class="editor-label">
+            Gender
+        </div>
+         
+        <div class="editor-label">
+          @Html.EditorFor(model => model.Gender)
+        </div>
+        
+        
+        <div class="editor-label">
+            Mobile
+        </div>
+         
+        <div class="editor-label">
+          @Html.EditorFor(model => model.Mobile)
+        </div>
+        <p>
+            <button type="submit" value="Save" name="Save"  onclick="location.href = '@Url.Action("Edit/"+Model)'">Save</button>
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

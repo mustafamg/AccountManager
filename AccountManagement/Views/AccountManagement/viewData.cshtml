@@ -1,0 +1,28 @@
+﻿@model AccountManagement.Models.RegisterEntry
+@{
+    ViewBag.Title = "View Data";
+}
+
+<h2>viewData</h2>
+
+<ul id="entries">
+    @if(Model != null)
+    {    
+       <li class="entry">
+           <b> Name:</b> <span class="Name">@Model.Name</span><br />
+            <b>Email:</b> <span class="Email">@Model.Email</span><br />
+            <b>Gender: </b><span class="Gender">@Model.Gender</span><br />
+            <b>Gender: </b><span class="Gender">@Model.Mobile</span><br />
+            <b>Activated: </b><span class="Activated">@Model.Activated</span><br />
+    <button name="Edit" type="submit" onclick="location.href = '@Url.Action("edit/"+Model.Email)'">Edit</button>
+
+        </li>
+        <hr />
+        @ViewBag.Message
+    }
+    else 
+    {
+        <p>You must login ... please try again ^^</p>
+    }
+    
+</ul>
