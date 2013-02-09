@@ -1,8 +1,8 @@
-﻿@model AccountManagement.Models.RegisterEntry
+﻿
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<button name="My account" type="submit" onclick="location.href = '@Url.Action("viewData/"+Model.Email)'">My Account</button>
+<button name="My account" type="submit" onclick="location.href = '@Url.Action("viewData")'>My Account</button>

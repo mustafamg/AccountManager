@@ -3,9 +3,9 @@
 Background: 
 	Given I am on "home" page
 	#the email will be considered as username
-	And I am registered with the following data :
-	| name | password | email         | mobile   | gender | activated |
-	| Tala | aya@123 | tala@gmail.com | 00972598 | Female | yes       |
+	And I am registered with the following data:
+	| name | password | email          | mobile   | gender | activated |
+	| Tala | aya@123  | tala@gmail.com | 00972598 | Female | yes       |
 	# with "aya@gmail.com" and "Tala@123"
 	And I'm logged in
 	When I press on "My account"
@@ -13,13 +13,13 @@ Background:
 Scenario: View personal data successfully.
 	Then I should see the following data: 
 	| name | email         | mobile   | gender |
-	| Tala | aya@gmail.com | 00972598 | Female |
+	| Tala | tala@gmail.com | 00972598 | Female |
 
 Scenario: Update personal data successfully.
 	When I press on "Edit"
 	Then I should see the following data editable:
          | name | email         | mobile   | gender |
-         | Tala | aya@gmail.com | 00972598 | Female |
+         | Tala | tala@gmail.com | 00972598 | Female |
 	When I update the following data: 
 	| name        | mobile | gender |
 	| Talal gamal | 000000 | Male   |

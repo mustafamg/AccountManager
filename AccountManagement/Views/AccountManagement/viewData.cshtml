@@ -9,11 +9,11 @@
     @if(Model != null)
     {    
        <li class="entry">
-           <b> Name:</b> <span class="Name">@Model.Name</span><br />
-            <b>Email:</b> <span class="Email">@Model.Email</span><br />
-            <b>Gender: </b><span class="Gender">@Model.Gender</span><br />
-            <b>Gender: </b><span class="Gender">@Model.Mobile</span><br />
-            <b>Activated: </b><span class="Activated">@Model.Activated</span><br />
+           <b> Name:</b> <span id="name">@Model.Name</span><br />
+            <b>Email:</b> <span id="email">@Model.Email</span><br />
+            <b>Gender: </b><span id="gender">@(Model.Gender=='F'?"Female":"Male")</span><br />
+            <b>Gender: </b><span id="mobile">@Model.Mobile</span><br />
+            <b>Activated: </b><span id="activated">@Model.Activated</span><br />
     <button name="Edit" type="submit" onclick="location.href = '@Url.Action("edit/"+Model.Email)'">Edit</button>
 
         </li>

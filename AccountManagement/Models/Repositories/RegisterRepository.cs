@@ -10,8 +10,7 @@ namespace AccountManagement.Models
         
 
         private readonly List<RegisterEntry> _entries = new List<RegisterEntry> {
-            new RegisterEntry {  Name = "Aya", Password="111", Email="aya@gmail.com",Mobile="00000", Gender='f', Activated= true},    
-            new RegisterEntry {  Name = "Mustafa", Password="111", Email="mustafa@gmail.com",Mobile="00000", Gender='m', Activated= true}
+            new RegisterEntry {  Name = "Aya", Password="111", Email="aya@gmail.com",Mobile="00000", Gender='f', Activated= true}
         };
         public IQueryable<RegisterEntry> Entries
         {

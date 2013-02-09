@@ -7,6 +7,8 @@ using WatiN.Core;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DeleporterCore.Client;
+using System.Collections.Generic;
+using AccountManagement.Specs.steps;
 namespace AccountManagement.Specs.Steps
 {
     [Binding]
@@ -28,13 +30,13 @@ namespace AccountManagement.Specs.Steps
         public void GivenIAmOnPage(string p0)
         {
             //goto home page
-            _browser.GoTo("http://localhost:8089/AccountManagement");
+            _browser.GoTo("http://localhost:8089/");
         }
         /// <summary>
         /// /step 2
         /// </summary>
         /// <param name="table"></param>
-        [Given(@"I am registered with the following data :")]
+        [Given(@"I am registered with the following data:")]
         public void GivenIAmRegisteredWithTheFollowingData(TechTalk.SpecFlow.Table table)
         {
             var tableSerialized = new SerializableTable(table);
@@ -106,7 +108,12 @@ namespace AccountManagement.Specs.Steps
         [Then(@"I should see the following data:")]
         public void ThenIShouldSeeTheFollowingData(TechTalk.SpecFlow.Table table)
         {
-            ////the data viewed before by get in url  paramenter 
+            //RegisterEntry entry = new RegisterEntry();
+            Assert.AreEqual(_browser.Element("name").Text, table.Rows[0]["name"]);
+            Assert.AreEqual(_browser.Element("email").Text, table.Rows[0]["email"]);
+            Assert.AreEqual(_browser.Element("gender").Text, table.Rows[0]["gender"]);
+            Assert.AreEqual(_browser.Element("mobile").Text, table.Rows[0]["mobile"]);
+            
         }
 
         ///// <summary>

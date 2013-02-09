@@ -118,6 +118,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyAccountDataList.cs" />
     <Compile Include="Steps\AccountDataManagementSteps.cs" />
     <Compile Include="Infrastructure\Hooking.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactoryUtils.cs" />
