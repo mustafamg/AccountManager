@@ -109,26 +109,15 @@ namespace AccountManagement.Specs.Steps
         public void ThenIShouldSeeTheFollowingData(TechTalk.SpecFlow.Table table)
         {
             //RegisterEntry entry = new RegisterEntry();
-            Assert.AreEqual(_browser.Element("name").Text, table.Rows[0]["name"]);
-            Assert.AreEqual(_browser.Element("email").Text, table.Rows[0]["email"]);
-            Assert.AreEqual(_browser.Element("gender").Text, table.Rows[0]["gender"]);
-            Assert.AreEqual(_browser.Element("mobile").Text, table.Rows[0]["mobile"]);
-            
+            foreach (var header in table.Header)
+            {
+                Assert.AreEqual(_browser.Element(header).Text, table.Rows[0][header]);
+            }
+            //Assert.AreEqual(_browser.Element("name").Text, table.Rows[0]["name"]);
+            //Assert.AreEqual(_browser.Element("email").Text, table.Rows[0]["email"]);
+            //Assert.AreEqual(_browser.Element("gender").Text, table.Rows[0]["gender"]);
+            //Assert.AreEqual(_browser.Element("mobile").Text, table.Rows[0]["mobile"]); 
         }
-
-        ///// <summary>
-        ///// Step 2.1 pres edit
-        ///// </summary>
-        ///// <param name="p0"></param>
-        //[When(@"I press on ""(.*)""\.")]
-        //public void WhenIPressOn_(string p0)
-        //{
-        //    ////create edit button
-        //    Button btn = _browser.Button(Find.ByName("Edit"));
-        //    Assert.IsTrue(btn.Exists, "The button Edit doesnt exist");
-        //    btn.Click();
-
-        //}
         
         /// <summary>
         /// /step 2.2 view editable data 
@@ -137,8 +126,14 @@ namespace AccountManagement.Specs.Steps
         [Then(@"I should see the following data editable:")]
         public void ThenIShouldSeeTheFollowingDataEditable(TechTalk.SpecFlow.Table table)
         {
-            ///the edtitable data apper by defualt 
-            //ScenarioContext.Current.Pending();
+            foreach (var header in table.Header)
+            {
+                Assert.AreEqual(_browser.Element(header.ToUpperInvariant()).Text, table.Rows[0][header]);
+            }
+            Assert.AreEqual(_browser.Element("name").TagName, "input");
+            Assert.AreEqual(_browser.Element("email").TagName, "input");
+            Assert.AreEqual(_browser.Element("gender").TagName, "input");
+            Assert.AreEqual(_browser.Element("mobile").TagName, "input");
         }
         /// <summary>
         /// step 2.3 enter updated data

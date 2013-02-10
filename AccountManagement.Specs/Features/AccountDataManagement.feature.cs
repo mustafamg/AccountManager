@@ -139,12 +139,10 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
-                        "email",
                         "mobile",
                         "gender"});
             table3.AddRow(new string[] {
                         "Tala",
-                        "tala@gmail.com",
                         "00972598",
                         "Female"});
 #line 20

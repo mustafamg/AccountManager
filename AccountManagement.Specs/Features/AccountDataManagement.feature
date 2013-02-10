@@ -18,8 +18,8 @@ Scenario: View personal data successfully.
 Scenario: Update personal data successfully.
 	When I press on "Edit"
 	Then I should see the following data editable:
-         | name | email         | mobile   | gender |
-         | Tala | tala@gmail.com | 00972598 | Female |
+         | name | mobile   | gender |
+         | Tala | 00972598 | Female |
 	When I update the following data: 
 	| name        | mobile | gender |
 	| Talal gamal | 000000 | Male   |
