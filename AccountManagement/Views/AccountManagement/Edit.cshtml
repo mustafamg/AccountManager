@@ -4,6 +4,30 @@
 }
 
 <h2>Edit</h2>
+@section sidebar
+    {
+    <section class="sidebar">
+        <div class="panel">
+            <h5>My Account</h5>
+            <img src="../images/mpic.png">
+            <p><a href="#">Change my Profile picture</a></p>
+            <p><a href="#">Edit my Profile</a></p>
+        </div>
+        <h5>Categories</h5>
+        <ul class="side-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Contact me</a></li>
+        </ul>
+
+        <div class="panel">
+            <h5>Featured</h5>
+            <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+            <a href="#">Read More &rarr;</a>
+        </div>
+
+    </section>
+}
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)

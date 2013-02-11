@@ -1,8 +1,53 @@
-﻿
+﻿@model AccountManagement.Models.RegisterEntry
+
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+@section sidebar
+    {
+    <section class="sidebar">
+        <div class="panel">
+            <h5>My Account</h5>
+            <img src="../images/mpic.png">
+            <p><a href="#">Change my Profile picture</a></p>
+            <p><a href="#">Edit my Profile</a></p>
+        </div>
+        <h5>Categories</h5>
+        <ul class="side-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Contact me</a></li>
+        </ul>
 
-<button name="My account" type="submit" onclick="location.href = '@Url.Action("viewData")'>My Account</button>
+        <div class="panel">
+            <h5>Featured</h5>
+            <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+            <a href="#">Read More &rarr;</a>
+        </div>
+
+    </section>
+}
+
+<ul id="entries">
+    @if(Model != null)
+    {    
+       <li class="entry">
+           <b> Name:</b> <span id="name">@Model.Name</span><br />
+            <b>Email:</b> <span id="email">@Model.Email</span><br />
+            <b>Gender: </b><span id="gender">@(Model.Gender=='F'?"Female":"Male")</span><br />
+            <b>Gender: </b><span id="mobile">@Model.Mobile</span><br />
+            <b>Activated: </b><span id="activated">@Model.Activated</span><br />
+    <button name="Edit" type="submit" onclick="location.href = '@Url.Action("edit/"+Model.Email)'">Edit</button>
+
+        </li>
+        <hr />
+        @ViewBag.Message
+    }
+    else 
+    {
+        <p>You must login ... please try again ^^</p>
+    }
+    
+</ul>

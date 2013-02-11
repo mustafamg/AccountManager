@@ -19,7 +19,7 @@ namespace AccountManagement.Specs.Steps
 
         public AccountDataManagementSteps(IE browser)
         {
-            _browser=browser;
+            _browser = browser;
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace AccountManagement.Specs.Steps
             password = tableSerialized.Rows[0]["password"];
             //mobile = tableSerialized.Rows[0]["mobile"];
             //gender = tableSerialized.Rows[0]["gender"];
-                                 
+
             Deleporter.Run(() =>
             {
                 var mockRepository = new Mock<IRegisterRepository>();
@@ -71,7 +71,7 @@ namespace AccountManagement.Specs.Steps
         [Given(@"I'm logged in")]// with ""(.*)"" and ""(.*)""")]
         public void GivenIMLoggedIn()//string useremail, string pass)
         {
-            _browser.GoTo("http://localhost:8089/Account/login");
+            _browser.GoTo("http://localhost:8089/account/login");
             TextField nametxt = _browser.TextField(Find.ByName("UserName"));
             TextField passtxt = _browser.TextField(Find.ByName("Password"));
             Button login = _browser.Button(Find.ByName("login"));
@@ -85,12 +85,21 @@ namespace AccountManagement.Specs.Steps
             Assert.AreEqual(password, passtxt.Text);
             Assert.IsTrue(login.Exists, "The button Add doesnt exist");
             login.Click();
-           // _browser.GoTo("http://localhost:8089/AccountManagement");
         }
         /// <summary>
         /// /step 4
         /// </summary>
         /// <param name="buttonLabel"></param>
+
+        [When(@"I click on ""(.*)"" link")]
+        public void WhenIClickOnLink(string linkId)
+        {
+            ////create             
+            Link login = _browser.Link(Find.ById(linkId));
+            Assert.IsTrue(login.Exists, "The Link {0} doesnt exist", linkId);
+            login.Click();
+        }
+
         [When(@"I press on ""(.*)""")]
         public void WhenIPressOn(string buttonLabel)
         {
@@ -98,8 +107,8 @@ namespace AccountManagement.Specs.Steps
             Button btn = _browser.Button(Find.ByName(buttonLabel));
             Assert.IsTrue(btn.Exists, "The button {0} doesnt exist", buttonLabel);
             btn.Click();
-
         }
+
 
         /// <summary>
         /// step 1.1 view data 
@@ -118,7 +127,7 @@ namespace AccountManagement.Specs.Steps
             //Assert.AreEqual(_browser.Element("gender").Text, table.Rows[0]["gender"]);
             //Assert.AreEqual(_browser.Element("mobile").Text, table.Rows[0]["mobile"]); 
         }
-        
+
         /// <summary>
         /// /step 2.2 view editable data 
         /// </summary>
@@ -146,7 +155,7 @@ namespace AccountManagement.Specs.Steps
             TextField nametxt = _browser.TextField(Find.ByName("Name"));
             Assert.IsTrue(nametxt.Exists, "The Text {0} doesnt exist", "Name");
             nametxt.TypeText(table.Rows[0][0]);
-            
+
             TextField gendertxt = _browser.TextField(Find.ByName("Gender"));
             Assert.IsTrue(gendertxt.Exists, "The Text {0} doesnt exist", "Gender");
             gendertxt.TypeText(table.Rows[0][1]);
@@ -179,6 +188,6 @@ namespace AccountManagement.Specs.Steps
         {
             ScenarioContext.Current.Pending();
         }
-     
+
     }
 }

@@ -1,14 +1,14 @@
 ﻿Feature: Account Data Management
 
 Background: 
-	Given I am on "home" page
-	#the email will be considered as username
-	And I am registered with the following data:
+	Given I am registered with the following data:
 	| name | password | email          | mobile   | gender | activated |
 	| Tala | aya@123  | tala@gmail.com | 00972598 | Female | yes       |
-	# with "aya@gmail.com" and "Tala@123"
+	#the email will be considered as username
 	And I'm logged in
-	When I press on "My account"
+	# with "aya@gmail.com" and "Tala@123"
+	And I am on "home" page
+	When I click on "MyAccount" link
 
 Scenario: View personal data successfully.
 	Then I should see the following data: 

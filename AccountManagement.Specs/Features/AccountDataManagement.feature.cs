@@ -71,8 +71,6 @@ namespace AccountManagement.Specs.Features
         public virtual void FeatureBackground()
         {
 #line 3
-#line 4
- testRunner.Given("I am on \"home\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
@@ -88,12 +86,14 @@ namespace AccountManagement.Specs.Features
                         "00972598",
                         "Female",
                         "yes"});
-#line 6
- testRunner.And("I am registered with the following data:", ((string)(null)), table1, "And ");
-#line 10
+#line 4
+ testRunner.Given("I am registered with the following data:", ((string)(null)), table1, "Given ");
+#line 8
  testRunner.And("I\'m logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("I am on \"home\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.When("I press on \"My account\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on \"MyAccount\" link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
         }
         
