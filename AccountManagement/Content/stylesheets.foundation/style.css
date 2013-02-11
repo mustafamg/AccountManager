@@ -1,0 +1,35 @@
+﻿.menu
+{
+height: 61px;
+margin-left: 0;
+margin-top: 20px;
+margin-bottom: 20px;
+padding: 0;
+}
+    .menu .home
+    {
+        background-image:url('../../images/menu-home.gif');
+        width:90px;
+        height:61px;
+        background-repeat:no-repeat;
+    }
+    .menu .right-end
+    {
+        background-image:url('../../images/menu-end.png');
+        height:61px;
+        background-repeat:no-repeat; 
+    top: 0px;
+}
+    .menu .center
+    {
+        background-image:url('../../images/menu-center.gif');
+        height:61px;
+        background-repeat:repeat-x;
+    top: 0px;
+    left: 0px;
+}
+.menu_list
+{
+    padding-left:50px;
+margin-top: 20px;
+}
