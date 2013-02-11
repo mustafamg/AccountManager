@@ -22,8 +22,14 @@ namespace AccountManagement
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/modernizrf").Include(
+                        "~/Scripts/stylesheets.foundation/modernizr.foundation.js"));
+            bundles.Add(new StyleBundle("~/Content/stylesheets.foundation/").Include("~/Content/stylesheets.foundation/foundation.min.css"));
+            bundles.Add(new StyleBundle("~/Content/stylesheets.foundation/").Include("~/Content/stylesheets.foundation/app.css"));
+            bundles.Add(new StyleBundle("~/Content/stylesheets.foundation/").Include("~/Content/stylesheets.foundation/style.css"));
+            bundles.Add(new StyleBundle("~/Content/stylesheets.foundation/").Include("~/Content/stylesheets.foundation/foundation.css"));
+            bundles.Add(new StyleBundle("~/Content/stylesheets.foundation/").Include("~/Content/stylesheets.foundation/general_foundicons.css"));
+            bundles.Add(new StyleBundle("~/Content/stylesheets.foundation/").Include("~/Content/stylesheets.foundation/general_foundicons_ie7.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

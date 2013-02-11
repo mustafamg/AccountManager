@@ -1,48 +1,85 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-        </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
-            </div>
-        </footer>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/stylesheets.foundation")
+    @Styles.Render("~/Content/stylesheets.foundation/app.css")
+    @Styles.Render("~/Content/stylesheets.foundation/foundation.min.css")
+    @Styles.Render("~/Content/stylesheets.foundation/general_foundation.css")
+    @Styles.Render("~/Content/stylesheets.foundation/style.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/scripts/foundation.javascripts/modernizr.foundation.js")
 
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+</head>
+<body>
+<!-- Nav Bar -->
+
+    <div class="row">
+        <div class="twelve columns">
+            <img src="../images/title2.png" />
+            <nav class="menu twelve columns">
+                <div class="one columns">
+                    <a href="#" class="home prefix">
+                        <div class="name"></div>
+
+                    </a>
+                </div>
+                <div class="ten columns center">
+                    @RenderSection("menu", required: false)
+                </div>
+                <div class="postfix one column right-end"></div>
+            </nav>
+            <hr />
+        </div>
+    </div>
+  <!-- End Nav -->
+
+    
+  <!-- Main Page Content and Sidebar -->
+
+  <div class="row">
+
+    <!-- Main Blog Content -->
+    <div style="float:right" class="nine columns" role="content">
+    @RenderBody()     
+    </div>
+
+    <!-- End Main Content -->
+
+
+    <!-- Sidebar -->
+
+    <aside style="float:left" class="three columns">
+                    @RenderSection("sidebar", required: true)
+
+    </aside>
+
+    <!-- End Sidebar -->
+  </div>
+
+  <!-- End Main Content and Sidebar -->
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="twelve columns">
+      <hr />
+      <div class="row">
+        <div class="six columns">
+          <p>&copy; Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="six columns">
+           @RenderSection("footermenu", required: false)
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- End Footer -->
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
 </html>
