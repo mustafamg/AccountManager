@@ -130,6 +130,10 @@
       <DependentUpon>AccountDataManagement.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\ScenarioHelper\LogInSteps.cs" />
+    <Compile Include="Steps\ScenarioHelper\MockData.cs" />
+    <Compile Include="Steps\ScenarioHelper\Navigation.cs" />
+    <Compile Include="Steps\ScenarioHelper\PageInteraction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

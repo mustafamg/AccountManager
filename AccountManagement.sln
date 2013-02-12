@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement", "Accoun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Specs", "AccountManagement.Specs\AccountManagement.Specs.csproj", "{B20A8041-E005-478A-B0BB-510C75A9A25E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Domain", "AccountManagement.Domain\AccountManagement.Domain.csproj", "{E0C1650B-8B7F-4311-B31B-437AF15D9ACF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{B20A8041-E005-478A-B0BB-510C75A9A25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B20A8041-E005-478A-B0BB-510C75A9A25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B20A8041-E005-478A-B0BB-510C75A9A25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C1650B-8B7F-4311-B31B-437AF15D9ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C1650B-8B7F-4311-B31B-437AF15D9ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C1650B-8B7F-4311-B31B-437AF15D9ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C1650B-8B7F-4311-B31B-437AF15D9ACF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

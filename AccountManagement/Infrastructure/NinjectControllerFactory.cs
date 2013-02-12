@@ -5,8 +5,8 @@ using Ninject.Modules;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web;
-using AccountManagement.Models;
-
+using AccountManagement.Domain.Repositories;
+using AccountManagement.Domain.Model;
 
 namespace AccountManagement.Infrastructure
 {
@@ -17,26 +17,30 @@ namespace AccountManagement.Infrastructure
         // ASP.NET MVC calls this to get the controller for each request
         protected override IController GetControllerInstance(RequestContext context, Type controllerType)
         {
-            return controllerType!=null? (IController)Kernel.Get(controllerType):null;
+            return controllerType != null ? (IController)Kernel.Get(controllerType) : null;
         }
         // Configures how abstract service types are mapped to concrete implementations
         private class MyAppModules : NinjectModule
         {
             public override void Load()
             {
+                //Todo: Need more work and test
+                var db = new AccountDbContext();
+                var ac = new AccountsRepository(db);
                 //Todo: Bind your interfaces to their impelementors
-                Bind<IRegisterRepository>().ToConstant<RegisterRepository>(regRep).InSingletonScope();
+                Bind<IAccountsRepository>().ToConstant<AccountsRepository>(ac).InSingletonScope();
             }
-            RegisterRepository _regRep;
-            private RegisterRepository regRep
-            {
-                get
-                {
-                if (HttpContext.Current.Application["regRep"] == null)
-                    System.Web.HttpContext.Current.Application["regRep"] = new RegisterRepository();
+        //    AccountsRepository _gb;
+        //    private AccountsRepository gb
+        //    {
+        //        get
+        //        {
+        //            if (HttpContext.Current.Application["gb"] == null)
+        //                System.Web.HttpContext.Current.Application["gb"] = new AccountsRepository();
 
-                return System.Web.HttpContext.Current.Application["regRep"] as RegisterRepository;
-            } }
+        //            return System.Web.HttpContext.Current.Application["gb"] as AccountsRepository;
+        //        }
+        //    }
         }
     }
 }
