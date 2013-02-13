@@ -12,32 +12,23 @@ namespace AccountManagement.Domain.Model
 {
     public partial class AccountDbContext : DbContext//, IMainModuleContext
     {
-         static AccountDbContext()
+        static AccountDbContext()
         {
             Database.SetInitializer(new AccountDatabaseInitializer());
         }
-        //public AccountDbContext() : base() {}
-	   
-        
-       
-         public AccountDbContext() : base(nameOrConnectionString: "Account") { }
+
+        public AccountDbContext() : base(nameOrConnectionString: "Account") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // Use singular table names
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
-           // modelBuilder.Configurations.Add(new SessionConfiguration());
-           
         }
-
         public DbSet<Account> Accounts { get; set; }
-        
+
         public void SaveChanges()
         {
             base.SaveChanges();
         }
-
-
     }
 }
