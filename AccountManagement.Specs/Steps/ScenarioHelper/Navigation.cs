@@ -23,7 +23,7 @@ namespace AccountManagement.Specs.Steps.ScenarioHelper
             _pageUrls = new PageUrls();
         }
 
-        [Given(@"I am on ""(.*)"" page")]
+        [Given(@"I am on ""(.*)"" page.")]
         public void GivenIAmOnPage(string pageTitle)
         {
             _browser.GoTo(_pageUrls[pageTitle]);

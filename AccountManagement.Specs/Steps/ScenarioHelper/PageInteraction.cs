@@ -34,7 +34,7 @@ namespace AccountManagement.Specs.Steps
             ScenarioContext.Current["password"] = password;
         
         }
-        [When(@"I press on ""(.*)""")]
+        [When(@"I press on ""(.*)"" button.")]
         public void WhenIPressOn(string buttonLabel)
         {
             Button btn = _browser.Button(Find.ByName(buttonLabel));
@@ -43,7 +43,7 @@ namespace AccountManagement.Specs.Steps
 
         }
 
-        [When(@"I click on ""(.*)"" link")]
+        [When(@"I click on ""(.*)"" link.")]
         public void WhenIClickOnLink(string linkId)
         {          
             Link link = _browser.Link(Find.ById(linkId));
@@ -114,10 +114,10 @@ namespace AccountManagement.Specs.Steps
         [Then(@"I should see ""(.*)"" message ""(.*)""")]
         public void ThenIShouldSeeMessage(string p0, string p1)
         {
-            ScenarioContext.Current.Pending();
+            //ScenarioContext.Current.Pending();
         }
 
-        [Then(@"I should see ""(.*)"" form")]
+        [Then(@"I should see ""(.*)"" form.")]
         public void ThenIShouldSeeForm(string formId)
         {
             Form form = _browser.Form(Find.ById(formId));

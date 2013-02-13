@@ -5,10 +5,10 @@ Background:
 	| name | password | email          | mobile   | gender | activated |
 	| Tala | aya@123  | tala@gmail.com | 00972598 | Female | yes       |
 	#the email will be considered as username
-	And I'm logged in
+	And I'm logged in.
 	# with "aya@gmail.com" and "Tala@123"
-	And I am on "home" page
-	When I click on "MyAccount" link
+	And I am on "home" page.
+	When I click on "MyAccount" link.
 
 Scenario: View personal data successfully.
 	Then I should see the following data: 
@@ -16,14 +16,14 @@ Scenario: View personal data successfully.
 	| Tala | tala@gmail.com | 00972598 | Female |
 
 Scenario: Update personal data successfully.
-	When I press on "Edit"
+	When I press on "Edit" button.
 	Then I should see the following data editable:
          | name | mobile   | gender |
          | Tala | 00972598 | Female |
 	When I update the following data: 
 	| name        | mobile | gender |
 	| Talal gamal | 000000 | Male   |
-	Then I should see "successful" message
+	Then I should see "successful" message.
 	And I should see the updated data: 
 	| name        | mobile | gender |
 	| Talal gamal | 000000 | Male   |

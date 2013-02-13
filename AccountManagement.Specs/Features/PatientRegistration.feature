@@ -1,8 +1,8 @@
 ﻿Feature: Patient Registration
 
 Background:
-     Given I am on "Main" page
-     When I click on "Registration" link
+     Given I am on "Main" page.
+     When I click on "Registration" link.
 	Then I should see "Register User" form.
 
 Scenario: Successful registration 

@@ -34,7 +34,7 @@ namespace AccountManagement.Specs.Steps.ScenarioHelper
         [Given(@"I'm logged in.")]// with ""(.*)"" and ""(.*)""")]
         public void GivenIMLoggedIn()//string useremail, string pass)
         {
-            _browser.GoTo("http://localhost:8089/Account/login");
+            _browser.GoTo(_pageUrls["Login"]);
             TextField nametxt = _browser.TextField(Find.ByName("UserName"));
             TextField passtxt = _browser.TextField(Find.ByName("Password"));
             Button login = _browser.Button(Find.ByName("login"));
