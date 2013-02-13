@@ -172,13 +172,14 @@ namespace AccountManagement.Specs.Steps
         /// <summary>
         /// step 2.4 successful message
         /// </summary>
-        /// <param name="p0"></param>
+        /// <param name="msg"></param>
         [Then(@"I should see ""(.*)"" message")]
-        public void ThenIShouldSeeMessage(string p0)
+        public void ThenIShouldSeeMessage(string msg)
         {
-            _browser.ContainsText(p0);
+            _browser.ContainsText(msg);
         }
 
+      
         /// <summary>
         /// 2.5 see the result of update 
         /// </summary>
