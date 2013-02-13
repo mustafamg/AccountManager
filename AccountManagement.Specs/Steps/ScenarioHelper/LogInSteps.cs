@@ -22,7 +22,15 @@ namespace AccountManagement.Specs.Steps.ScenarioHelper
     public  class LogInSteps
     {
         private readonly IE _browser;
+        private readonly AccountManagement.Specs.Steps.PageInteraction.PageUrls _pageUrls;
         string username, password;
+
+        public LogInSteps(IE browser)
+        {
+            _browser = browser;
+            _pageUrls = new AccountManagement.Specs.Steps.PageInteraction.PageUrls();
+        }
+
         [Given(@"I'm logged in.")]// with ""(.*)"" and ""(.*)""")]
         public void GivenIMLoggedIn()//string useremail, string pass)
         {
