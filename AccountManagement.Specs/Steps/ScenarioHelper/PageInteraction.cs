@@ -108,14 +108,23 @@ namespace AccountManagement.Specs.Steps
         [Then(@"I should see ""(.*)"" message.")]
         public void ThenIShouldSeeMessage(string message)
         {
-            _browser.ContainsText(message);
+            var succMsg = _browser.ContainsText(message);
+            Assert.AreEqual(succMsg, message);
         }
 
-        [Then(@"I should see ""(.*)"" message ""(.*)""")]
-        public void ThenIShouldSeeMessage(string p0, string p1)
+       
+
+        [Then(@"I should see ""(.*)"" message ""(.*)""\.")]
+        public void ThenIShouldSeeMessage_(string message, string messageText)
         {
-            //ScenarioContext.Current.Pending();
+            var msg = _browser.ContainsText(message);
+            Assert.AreEqual(msg, "successful");
+
+            var msgText = _browser.ContainsText(messageText);
+            Assert.AreEqual(msgText, messageText);
+            
         }
+
 
         [Then(@"I should see ""(.*)"" form.")]
         public void ThenIShouldSeeForm(string formId)
@@ -143,7 +152,7 @@ namespace AccountManagement.Specs.Steps
         [Then(@"I should see the updated data:")]
         public void ThenIShouldSeeTheUpdatedData(TechTalk.SpecFlow.Table table)
         {
-            ScenarioContext.Current.Pending();
+           // ScenarioContext.Current.Pending();
         }
   
         

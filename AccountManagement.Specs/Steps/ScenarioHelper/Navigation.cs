@@ -109,6 +109,7 @@ namespace AccountManagement.Specs.Steps.ScenarioHelper
             {
                 BaseUrl = new Uri(ConfigurationManager.AppSettings["BaseUri"]);
                 Pages.Add("home", "/");
+                Pages.Add("Login", "login/");
             }
             public Uri this[string pageTitle]
             {

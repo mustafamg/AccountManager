@@ -39,6 +39,7 @@ namespace AccountManagement.Specs.Steps.ScenarioHelper
                             {
                                 Name = tableSerialized.Rows[0]["name"],
                                 Password = tableSerialized.Rows[0]["password"],
+                                //ConfirmPassword = tableSerialized.Rows[0]["confirm password"],
                                 Email = tableSerialized.Rows[0]["email"],
                                 Mobile = tableSerialized.Rows[0]["mobile"],
                                 Gender = Convert.ToChar(tableSerialized.Rows[0]["gender"][0]),
@@ -48,5 +49,32 @@ namespace AccountManagement.Specs.Steps.ScenarioHelper
           });
           //ScenarioContext.Current.Pending();
       }
+
+      [When(@"I enter the following data:")]
+      public void WhenIEnterTheFollowingData(TechTalk.SpecFlow.Table table)
+      {
+          var tableSerialized = new SerializableTable(table);
+          ScenarioContext.Current["username"] = tableSerialized.Rows[0]["email"];
+          ScenarioContext.Current["password"] = tableSerialized.Rows[0]["password"];
+          
+
+          Deleporter.Run(() =>
+          {
+              var mockRepository = new Mock<IRegisterRepository>();
+              mockRepository.Setup(x => x.Get(tableSerialized.Rows[0]["email"]))
+                  .Returns((from row in tableSerialized.Rows
+                            select new RegisterEntry
+                            {
+                                Name = tableSerialized.Rows[0]["name"],
+                                Password = tableSerialized.Rows[0]["password"],
+                                Email = tableSerialized.Rows[0]["email"],
+                                Mobile = tableSerialized.Rows[0]["mobile"],
+                                Gender = Convert.ToChar(tableSerialized.Rows[0]["gender"][0]),
+                                Activated = tableSerialized.Rows[0]["activated"] == "yes" ? true : false
+                            }).ToList()[0]);
+              NinjectControllerFactoryUtils.TemporarilyReplaceBinding<IRegisterRepository>(mockRepository.Object);
+          });
+      }
+
     }
 }
